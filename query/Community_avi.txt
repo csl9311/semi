@@ -1,0 +1,342 @@
+DROP TABLE BOARD;
+DROP TABLE GOOD;
+DROP TABLE AREPLY;
+
+DROP VIEW ARLIST;
+DROP VIEW BLIST;
+DROP VIEW GOODLIST;
+
+DROP SEQUENCE SEQ_BID;
+DROP SEQUENCE SEQ_RID;
+
+--보드만들기!
+
+CREATE TABLE BOARD( 
+  BID NUMBER PRIMARY KEY,
+  BTYPE NUMBER, --�Խ���Ÿ�� 1 �����Խ��� 2 ����
+  CID NUMBER,
+  BTITLE VARCHAR2(200),
+  BCONTENT CLOB,
+  BWRITER VARCHAR2(30),
+  BGOOD NUMBER DEFAULT 0,
+  BCOUNT NUMBER DEFAULT 0,
+  BYOUTUBEADDRESS VARCHAR2(4000),
+  CREATE_DATE DATE,
+  MODIFY_DATE DATE,
+  STATUS VARCHAR2(1) DEFAULT 'Y' CHECK (STATUS IN('Y', 'N'))
+
+  );
+CREATE SEQUENCE SEQ_BID;
+--grant create view to cono -- view 생성안될때 이거쓰세요
+
+
+--영상 게시판 뷰
+CREATE OR REPLACE VIEW BLIST
+AS
+SELECT ROWNUM RNUM,BID, BTYPE, CID,BTITLE,BCONTENT,BWRITER,BGOOD,BCOUNT,BYOUTUBEADDRESS,CREATE_DATE,MODIFY_DATE,STATUS
+FROM BOARD WHERE STATUS = 'Y' AND BTYPE ='2';
+
+--추천테이블
+CREATE TABLE GOOD( 
+
+    BID NUMBER NOT NULL,
+    USERID VARCHAR2(100) NOT NULL,
+    BWRITER VARCHAR2(100) NOT NULL,
+    GOOD_CHECK NUMBER DEFAULT 0 NULL,
+
+    CONSTRAINT GOODKEY PRIMARY KEY(BID,USERID)
+ 
+
+
+    );
+    
+ --댓글테이블   
+CREATE TABLE AREPLY(
+    RID NUMBER PRIMARY KEY,
+    RCONTENT CLOB,
+    RWRITER VARCHAR(100),
+    REF_ABID NUMBER,
+    CREATE_DATE DATE,
+    MODIFY_DATE DATE,
+    STATUS VARCHAR(5) default 'Y'
+    );
+    
+   
+    
+    
+  
+    
+CREATE SEQUENCE SEQ_RID;  
+
+CREATE  VIEW ARLIST
+AS 
+SELECT ROWNUM RNUM, RID,RCONTENT,RWRITER,REF_ABID,CREATE_DATE,MODIFY_DATE,status
+FROM AREPLY WHERE STATUS ='Y';
+
+--추천 VIEW
+
+ CREATE VIEW GOODLIST AS
+    SELECT BID,USERID,BWRITER,GOOD_CHECK FROM GOOD WHERE GOOD_CHECK=1;
+
+
+--CREATE SEQUENCE SEQ_RID;  
+
+
+-----------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+----------------------------------------인서트 부분-------------------------------------------------------------------
+
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'Naomi Scott - Speechless (J.Fla 커버)',q'[Here comes a wave
+Meant to wash me away
+A tide that is taking me under
+Swallowing sand
+Left with nothing to say
+My voice drowned out in the thunder
+But I won't cry
+And I won't start to crumble
+Whenever they try
+To shut me or cut me down
+I won't be silenced
+You can't keep me quiet
+Won't tremble when you try it
+All I know is I won't go speechless
+'Cause I'll breathe
+When they try to suffocate me
+Don't you underestimate me
+'Cause I know that I won't go speechless
+Written in stone
+Every rule, every word
+Centuries old and unbending
+Stay in your place
+Better seen and not heard
+But now that story is ending
+'Cause I
+I cannot start to crumble
+So come on and try
+Try to shut me and cut me down
+I won't be silenced
+You can't keep me quiet
+Won't tremble when you try it
+All I know is I won't go speechless
+Speechless
+Let the storm in
+I cannot be broken
+No, I won't live unspoken
+'Cause I know that I won't go speechless
+Try to lock me in this cage
+I won't just lay me down and die
+I will take these broken wings
+And watch me burn across the sky
+Hear the echoes saying I
+Won't be silenced
+Though you want to see me tremble when you try it
+All I know is I won't go speechless
+Speechless
+'Cause I'll breathe
+When they try to suffocate me
+Don't you underestimate me
+'Cause I know that I won't go speechless
+All I know is I won't go speechless
+Speechless]','외쿡인',5,DEFAULT,'<iframe width="879" height="494" src="https://www.youtube.com/embed/S8e1geEpnTA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+
+
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'[일소라] 일반인 박정준 - 행복하지 말아요 (MC the max) cover',q'[원곡을 넘어서는 일반인들의 소름돋는 라이브가 궁금하다면 일소라 구독하기! ]','nickname',DEFAULT,DEFAULT,'<iframe width="1280" height="720" src="https://www.youtube.com/embed/d9w_jsRlH3c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'냥멍이와 힐링 되게 일반인이 부른 ‘나만, 봄’ (볼빨간사춘기) cover',q'[냥멍이와 힐링 되게 일반인이 부른 ‘나만, 봄’ (볼빨간사춘기)
+
+첫부분 가사랑 냥이랑 상황 찰떡ㅋㅋㅋㅋㅋㅋ
+냥이만 있는줄 알았으면 오산 댕댕이 자는즁 존귀..ㅠ
+
+( 노래 : 홍영구 님 )]','nickname',DEFAULT,DEFAULT,'<iframe width="1280" height="720" src="https://www.youtube.com/embed/aJ6qqh0Xwt4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'디지몬 어드벤처 오프닝 (Digimon Adventure OP.) - [ +7 Key ] - Butterfly - Cover by E.Hyuk',q'[ This is the song what most people asked me to sing "Butterfly" ost of digimon adventures.
+Original key is too low for me, so I recorded +7keys. Haha
+
+Plz enjoy!
+
+Many people asking me that where i get the MR from..?
+All MRs are made by ourself : )
+
+こんにちは。イヒョクです！
+
+多くの視聴者の方々から、『デジモン アドベンチャー』オープニング曲 「Butter-Fly」を「ぜひ歌ってほしい！」とリクエストがありました。
+原曲キーは私には少し低いので、思い切って7キー上げて歌ってみました！ハハハ！
+
+それと、音源をどこで入手するのかと、よく質問を頂きますが、全て自分達で作成しています。
+それでは聞いてください。
+
+ご視聴後、気に入っていただけたら「いいね！」＆「チャンネル登録」してください。
+よろしくお願いします。
+
+
+* Gears *
+
+Mic - Warm audio Condenser mic WA87 
+
+PreAmp - Focusrite ISA 220 Session Pack Channel Strip Preamp
+
+Head phone - Audio-technica ATH-M70X
+
+Guitar - Ibanez RG2027 XVV
+               Ibanez J-custom9570
+               Fractal Audio Axe-fx3
+
+Bass - Marleaux
+
+▶All MR  Making  ::  Song Jun Ho (UKRECORDS)
+▶Mixing Studio :  Studio MAROO
+▶Video Editing :: Choi Tae Hyun
+▶Song Title ::  Butterfly 
+▶Original singer ::   디지몬 어드벤처 오프닝]','nickname',DEFAULT,DEFAULT,'<iframe width="1280" height="720" src="https://www.youtube.com/embed/J2NWz20y8Yw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'Shawn Mendes, Camila Cabello - Señorita ( J.Fla 커버 )',q'[노래한번 오지게 불러봤습니다. ]','제이플라에용',DEFAULT,DEFAULT,'<iframe width="879" height="494" src="https://www.youtube.com/embed/LyRBLmFmHQA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'Alan Walker, Sabrina Carpenter  - On My Way ( cover by J.Fla )',q'[영어노래 힘드네;]','제이플라에용',DEFAULT,DEFAULT,'<iframe width="879" height="494" src="https://www.youtube.com/embed/jbVryQ1RZ7U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'공주님 목소리 일반인이 1년만에 부른 듸즈니 띵곡 메들리',q'[원곡을 넘어서는 일반인들의 소름돋는 라이브가 궁금하다면 일소라 구독하기!  ]','nickname',DEFAULT,DEFAULT,'<iframe width="879" height="494" src="https://www.youtube.com/embed/KNOkkZiWxL4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'코노 씹어먹는 실력의 일반인이 부른 사계',q'[코노 씹어먹는 실력의 일반인이 부른 ‘사계 (하루살이)’ (엠씨더맥스)
+
+넘쳐흘러 불러주셨던,, 레전드 고영준님 재 등판!!!
+갓반인이라 불러도 되요?... 징짜 싸,,ㅆ,,,ㄷㅏ,,,,
+
+( 노래 : 고영준 님 ) ]','노래좋아',DEFAULT,DEFAULT,'<iframe width="879" height="491" src="https://www.youtube.com/embed/hJTU5fUmuhw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'앤-마리 (Anne-Marie) - 2002 (Live)',q'[ I will always remember the day you kissed my lips
+Light as a feather
+And it went just like this
+No, it's never been better
+Than the summer of 2002
+We were only eleven
+But acting like grownups
+Like we are in the present, drinking from plastic cups
+Singing, "love is forever and ever"
+Well, I guess that was true
+Dancing on the hood in the middle of the woods
+Of an old Mustang, where we sang
+Songs with all our childhood friends
+And it went like this, yeah
+Oops I got ninety-nine problems singing bye, bye, bye
+Hold up, if you wanna go and take a ride with me
+Better hit me, baby, one more time
+Paint a picture for you and me
+Of the days when we were young
+Singing at the top of both our lungs
+Now we're under the covers
+Fast forward to eighteen
+We are more than lovers
+Yeah, we are all we need
+When we're holding each other
+I'm taken back to 2002
+Dancing on the hood in the middle of the woods
+Of an old Mustang, where we sang
+Songs with all our childhood friends
+And it went like this, yeah
+Oops I got ninety-nine problems singing bye, bye, bye
+Hold up, if you wanna go and take a ride with me
+Better hit me, baby, one more time
+Paint a picture for you and me
+Of the days when we were young
+Singing at the top of both our lungs
+On the day we fell in love
+On the day we fell in love
+Dancing on the hood in the middle of the woods
+Of an old Mustang, where we sang
+Songs with all our childhood friends
+Oh, now
+Oops I got ninety-nine problems singing bye, bye, bye
+Hold up, if you wanna go and take a ride with me
+Better hit me, baby, one more time
+Paint a picture for you and me
+Of the days when we were young
+Singing at the top of both our lungs
+On the day we fell in love
+On the day we fell in love
+On the day we fell in love
+On the day we fell in love
+On the day we fell in love, love, love]','Anne-Marie',DEFAULT,DEFAULT,'<iframe width="879" height="494" src="https://www.youtube.com/embed/kxqn8FAVbpU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'카서스vs소라카 미친 고음대전 ㅋㅋㅋ',q'[소라카vs카서스 ]','롤충',DEFAULT,DEFAULT,'<iframe width="879" height="494" src="https://www.youtube.com/embed/wnwYKFMTkGc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'Steel heart - She`s Gone - Cover by E.Hyuk',q'[ ▶All MR  Making  ::  Song Jun Ho (UKRECORDS)
+▶Mixing Studio :  Studio MAROO
+▶Video Editing :: Choi Tae Hyun
+▶Song Title ::  She`s Gone
+▶Original singer ::  Steel heart ]','이혁',5,DEFAULT,'<iframe width="879" height="494" src="https://www.youtube.com/embed/TUS_6Gtwipo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'이수 (ISU) - My Way (마이 웨이) (돈꽃 OST) - Cover by E.Hyuk',q'[안녕하세요 핫핫
+
+저도 요즘 핫한곡 my way 한번 불러봤습니다.
+
+발라드 연습도 할겸 또 제가 부르기 힘든 영역대의 소리도 내볼겸 겸사겸사 커버해 봤네욯ㅎ
+
+발라드는 역시 발음이 힘들군요...
+ 
+길게 뽑아내는 음에 가사를 전달해야 하는 임무가 
+주어지는 장르 ... 음.... 역시 공부가 많이 되었습니다.
+
+Key는 1키 올렸습니다.
+더올리면 원곡의 느낌이 많이 깨질꺼 같아서 1키만 올렸습니다.ㅎㅎ 
+
+즐겁게 들어주세요!!!!
+
+이상 ballader 도 되어보고싶은 rock vocalist 의 멘트 였습니다. ]','이혁',7,DEFAULT,'<iframe width="1280" height="720" src="https://www.youtube.com/embed/97YgnJzuTyo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'Sia - Chandelier (Original Key) - Cover by E.Hyuk',q'[이혁의 도장깨기!! 
+
+두번째 컨텐츠  Sia - Chandelier 불러 봤습니다.
+이건 key 를 올리고 자시고 할것 없이 그냥 원키만 소화해도..... 
+우연히 인터넷 음악 여행을 하다 남자 보컬들이 커버한걸 듣고 
+겁도 없이 커버해 봤습니다.
+원곡 느낌과는 다른 저희만의 느낌으로 편곡을 좀 해서 불렀는데
+느낌 괜찮으신가 다들?  ]','이혁',DEFAULT,DEFAULT,'<iframe width="1280" height="720" src="https://www.youtube.com/embed/kUT1NDtojLc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'윤종신 - 좋니 [세로라이브] 라이브 버전 LIVE',q'[좋니? ]','윤종신이다',DEFAULT,DEFAULT,'<iframe width="1280" height="721" src="https://www.youtube.com/embed/jy_UiIQn_d0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'[일소라] 개쩌는 라이브 인증하며 일반인이 부른 ‘신용재’ (하은 (라코스테남)) cover',q'[ 개쩌는 라이브 인증하며 일반인이 부른 ‘신용재’ (하은 (라코스테남))
+
+와,, 라이브실력 에바쎄바 개오지고 지렸다;;;ㅎㄷㄷ]','nickname',7,DEFAULT,'<iframe width="1280" height="720" src="https://www.youtube.com/embed/8pIBdhifGq4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'놀이터에서 아퍼 (기리보이) 커버! 와.. 매력 있다',q'[놀이터에서 아퍼 (기리보이) 커버!
+
+와.. 진짜 잘하네 릴타치 파트 좋아
+목소리 톤 매력 있다
+
+노래 : EB (최은빈)
+
+원곡 : GIRIBOY(기리보이) - I'm Sick(아퍼) (Feat. Kid Milli, Lil tachi, Kim Seungmin(김승민), NO:EL, C JAMM) ]','nickname',DEFAULT,DEFAULT,'<iframe width="1280" height="720" src="https://www.youtube.com/embed/hpG292cnV9M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'귀르가즘 돋는 일반인 라이브 모음 2018 (음색깡패 주의)',q'[으아아아앙 ]','일반인쩌럿다',DEFAULT,DEFAULT,'<iframe width="1280" height="720" src="https://www.youtube.com/embed/e8x1o6dNSvY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'Titanium + Alone ( cover by J.Fla )',q'[Don't forget to subscribe, like and leave a comment. ]','제이플라에용',DEFAULT,DEFAULT,'<iframe width="1280" height="720" src="https://www.youtube.com/embed/YfrW2D766YA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'Naomi Scott - Speechless(Music Video) From Aladdin',q'[알라딘 실사화 ㄷㄷ ]','알라딘팬',DEFAULT,DEFAULT,'<iframe width="1280" height="720" src="https://www.youtube.com/embed/n0gPIogzZ0A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'위대한 쇼맨 (The Greatest Showman) OST - Never Enough 가사 번역 뮤직비디오',q'[같이 감상이나 합시다 ]','위쇼맨',DEFAULT,DEFAULT,'<iframe width="1280" height="720" src="https://www.youtube.com/embed/KQIsk0ba5q0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'Warriors Live Performance Opening Ceremony 2014 Worlds Anthem',q'[제가 한국서 불렀던거 함 올려봐요 ]','상상용',DEFAULT,DEFAULT,'<iframe width="1280" height="720" src="https://www.youtube.com/embed/36dx0wpLtmU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'본인 노래 부르다 현타 온 임창정 - 노래방 (IM CHANG JUNG - Karaoke)',q'[본인 노래 부르다 현타 온 창정이 형ㅋㅋㅋㅋㅋ
+
+저렇게 몸을 주체 못 하는데 세로라이브 때 앉아서 부르게 했으니... 
+포박라이브였던 거 ㅇㅈ… (feat. I believe I can fly)
+
++ 마지막 무반주 댄스까지 겁나 웃김ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ ]','창정이형',DEFAULT,DEFAULT,'<iframe width="1280" height="720" src="https://www.youtube.com/embed/Ma-2uNU0kgc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'민서 Minseo - 좋아 Yes [세로라이브] 윤종신 좋니 답가 | 가사 Live',q'[ㅎㅎㅎ ]','민서',DEFAULT,DEFAULT,'<iframe width="879" height="704" src="https://www.youtube.com/embed/X29h0TrJfSM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'이승기의 노래실력이 엄청난걸 느꼈던 라이브 TOP 6',q'[ 이승기 그는 도덕책...]','라이브주세요',DEFAULT,DEFAULT,'<iframe width="879" height="494" src="https://www.youtube.com/embed/4LwBE2d9bfg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'유스케서 한곡 땡겨봄',q'[많이 들어주세요 ]','신용재',DEFAULT,DEFAULT,'<iframe width="879" height="494" src="https://www.youtube.com/embed/RWwXnAA0RdU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'일반인들의 소름돋는 남자 솔로 고음 라이브 best cover',q'[일반인들의 소름돋는 남자 솔로 고음 라이브
+
+ㄹㅇ 감탄사 밖에 안 나오는 미친 고음만 모아와씀,,
+구독자들이라면 다 아는 ㄱH10레전드 RGRG~
+이 분들 분명 성대에 금칠했다,, 내가 봤음;;; 암튼 봤음;;;;;; ]','목찢음',DEFAULT,DEFAULT,'<iframe width="879" height="494" src="https://www.youtube.com/embed/4sI_UJ-IY7E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+INSERT INTO BOARD VALUES(SEQ_BID.NEXTVAL,2,DEFAULT,'제 라이브 들어주세요',q'[
+0:01 럭키스타 - 서교동의 밤 
+2:09 무릎 - 아이유
+3:50 When Will My Begin - Moore 라푼젤 ost
+6:14 If I Ain`t Got You - Alicia Keys
+9:54 비행운 - 문문
+11:12 November Song - 백예린
+12:25 위잉위잉 - 혁오
+15:01 Happy Things - 제이레빗
+17:59 22 - Taylor Swift
+19:13 Tik Tok - Kesha
+20:18 나만 안되는 연애 - 볼빨간사춘기
+21:49 프리지아 - 볼빨간사춘기
+23:22 No Make Up - Zion T
+24:48 선물 - 멜로망스
+26:13 Santa Tell Me - Ariana Grande
+27:44 어떻게 이별까지 사랑하겠어 널 사랑하는거지 (어사널사) - 악동뮤지션 비공개 곡 ]','악뮤팬',DEFAULT,DEFAULT,'<iframe width="879" height="704" src="https://www.youtube.com/embed/y524FllcRHw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',SYSDATE,SYSDATE,DEFAULT);
+COMMIT;
+
+

@@ -1,0 +1,57 @@
+@charset "UTF-8";
+body{
+	min-height:100%;
+	background: rgb(40, 44, 52);
+}
+#Index{
+	height: 100%;
+	background: rgb(40, 44, 52);
+}
+.tab-1 {
+	margin: auto;
+	width: 80vw;
+	height: auto;
+	border: 1px solid white;
+}
+
+.tab-1 tr td {
+	border: 1px solid white;
+}
+
+.tab-2 {
+	margin: auto;
+	width: 80vw;
+	height: auto;
+	border: 1px solid white;
+}
+
+.tab-2 tr td {
+	border: 1px solid white;
+}
+
+.pay1 {
+	font-size: 2em;
+}
+
+#quantity {
+	width: 40px;
+}
+
+.cartBtn {
+	padding: 5px;
+}
+
+#pay-div1 {
+	width: 80vw;
+	margin: auto;
+	color: rgb(210, 210, 210);
+}
+
+.pay-tab {
+	border: 1px solid white;
+	width: 80vw;
+}
+
+.pay-tab tr td {
+	padding: 5px;
+}

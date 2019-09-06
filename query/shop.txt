@@ -1,0 +1,337 @@
+﻿drop table product cascade constraints;
+drop table category cascade constraints;
+drop table subcategory cascade constraints;
+drop table product_op cascade constraints;
+drop table brand cascade constraints;
+drop table rattachment cascade constraints;
+drop table pattachment cascade constraints;
+drop table review cascade constraints;
+drop table ANSWER  cascade constraints;
+drop view pdetail cascade constraints;
+drop view plist cascade constraints;
+drop sequence SEQ_PID;
+drop sequence SEQ_AID;
+drop sequence SEQ_RID;
+drop sequence SEQ_RFID;
+drop sequence SEQ_PFID;
+
+-----------------------------------------------테이블
+
+-- 카테고리 테이블
+create table CATEGORY(
+    CID number primary key,
+    CNAME varchar2(100) check (CNAME in ('스피커','헤드셋','헤드폰이어폰','블루투스사운드','마이크'))
+);
+
+-- 서브카테고리
+create table SUBCATEGORY(
+    sub_cid number primary key,
+    sub_cname varchar2(100) not null,
+    cid number not null,
+    FOREIGN key (cid) REFERENCES CATEGORY on delete cascade
+);
+
+-- 브랜드
+create table BRAND(
+    BID number primary key,
+    BNAME varchar2(100) not null unique
+);   
+-- 상품
+create table PRODUCT(
+    PID NUMBER PRIMARY KEY,
+    PNAME varchar2(100) not null unique,
+    CID number not null,
+    SUB_CID number not null,
+    BID number not null,
+    PRICE number not null,
+    STOCK number not null,
+    SELLCOUNT number default 0,
+    REGDATE date default sysdate,
+    MODIFY_DATE date default sysdate,
+    DESCRIPTION varchar2(1000),
+    USEOPTION varchar2(1) CHECK (useoption in ('Y', 'N')),
+    foreign key (cid) REFERENCES category on delete cascade,
+    foreign key (sub_cid) references subcategory on delete cascade,
+    foreign key (bid) references brand on delete cascade
+);
+
+create sequence SEQ_PID;
+
+-- 상품 옵션
+create table PRODUCT_OP(
+    pid number primary key,
+    PRODUCT_OP varchar2(200) not null,
+    foreign key (pid) references product on delete cascade
+);
+
+-- 유저의 리뷰와 QnA글        
+CREATE TABLE REVIEW( 
+  RID NUMBER PRIMARY KEY,
+  RTYPE NUMBER,
+  PID NUMBER,
+  RWRITER VARCHAR2(20),
+  RTITLE VARCHAR2(200),
+  RCONTENT VARCHAR2(4000),
+  RCOUNT NUMBER DEFAULT 0,
+  CREATE_DATE DATE,
+  MODIFY_DATE DATE,
+  STATUS VARCHAR2(1) DEFAULT 'Y' CHECK (STATUS IN('Y', 'N')),
+  FOREIGN KEY (PID) REFERENCES PRODUCT(PID) on delete cascade,
+  FOREIGN KEY (RWRITER) REFERENCES MEMBER(ID) on delete cascade
+); 
+
+CREATE SEQUENCE SEQ_RID;
+
+-- 관리자의 답변글
+CREATE TABLE ANSWER( 
+  AID NUMBER PRIMARY KEY,
+  ATYPE NUMBER,
+  PID NUMBER,
+  A_RID NUMBER,
+  AWRITER VARCHAR2(20),
+  ATITLE VARCHAR2(200),
+  ACONTENT VARCHAR2(4000),
+  ACOUNT NUMBER DEFAULT 0,
+  CREATE_DATE DATE,
+  MODIFY_DATE DATE,
+  STATUS VARCHAR2(1) DEFAULT 'Y' CHECK (STATUS IN('Y', 'N')),
+  FOREIGN KEY (PID) REFERENCES PRODUCT,
+  FOREIGN KEY (AWRITER) REFERENCES MEMBER(ID) on delete cascade,
+  FOREIGN KEY (A_RID) REFERENCES REVIEW(RID) on delete cascade
+);  
+
+CREATE SEQUENCE SEQ_AID;
+
+-- 리뷰사진 등록 경로
+create table RATTACHMENT(
+    RFID NUMBER PRIMARY KEY,
+    ORIGIN_NAME VARCHAR2(255) NOT NULL,
+    CHANGE_NAME VARCHAR2(255) NOT NULL,
+    FILE_PATH VARCHAR2(1000) NOT NULL,
+    RID NUMBER NOT NULL, -- 리뷰글번호
+    PID NUMBER NOT NULL, -- 상품번호
+    UPLOAD_DATE DATE DEFAULT SYSDATE,  
+    STATUS varchar2(1) default 'Y',
+    FOREIGN KEY(RID) REFERENCES REVIEW(RID) on delete cascade,
+    FOREIGN KEY(PID) REFERENCES PRODUCT(PID) on delete cascade
+);
+
+CREATE SEQUENCE SEQ_RFID;
+ 
+-- 상품사진 등록 경로
+create table PATTACHMENT(
+    PFID NUMBER PRIMARY KEY,
+    ORIGIN_NAME VARCHAR2(255) NOT NULL,
+    CHANGE_NAME VARCHAR2(255) NOT NULL,
+    FILE_PATH VARCHAR2(1000) NOT NULL,
+    PID NUMBER NOT NULL,
+    UPLOAD_DATE DATE DEFAULT SYSDATE, 
+    FILELEVEL number,
+    FOREIGN KEY(PID) REFERENCES PRODUCT(PID) on delete cascade
+);
+
+CREATE SEQUENCE SEQ_PFID;
+ 
+-----------------------------------------------뷰
+        
+-- 상품 조회용 뷰
+create or replace view "CONO"."PLIST"("PID", "PNAME", "CNAME", "SUB_CNAME", 
+                        "BNAME", "PRICE", "STOCK", "SELLCOUNT", "REGDATE", "MODIFY_DATE", "DESCRIPTION", "USEOPTION")
+as
+select pid, pname, cname, sub_cname, bname, price, stock, sellcount, regdate, modify_date, description, useoption
+from(select pid, pname, cname, sub_cname, bname, price, stock, sellcount, regdate, modify_date, description, useoption
+from PRODUCT p join category c on(p.CID = c.CID)
+                join subcategory s on(p.sub_cid = s.sub_cid)
+                join brand b on(p.bid = b.bid)
+order by pid);
+
+-- 관리자용 뷰
+CREATE OR REPLACE VIEW ADMIN_PRODUCT_VIEW
+AS SELECT PID, PRICE, STOCK, SELLCOUNT, PNAME, CNAME, SUB_CNAME, BNAME, USEOPTION, REGDATE, MODIFY_DATE, NVL(PRODUCT_OP, '-')"PRODUCT_OP"
+FROM PRODUCT
+    JOIN CATEGORY USING (CID)
+    JOIN SUBCATEGORY USING (SUB_CID)
+    JOIN BRAND USING (BID)
+    FULL JOIN PRODUCT_OP USING(PID);
+SELECT * FROM ADMIN_PRODUCT_VIEW;
+commit;
+
+-----------------------------------------------데이터
+
+-- CATEGORY 데이터
+insert into category values(10, '스피커');
+insert into category values(20, '헤드셋');
+insert into category values(30, '헤드폰이어폰');
+insert into category values(40, '블루투스사운드');
+insert into category values(50, '마이크');
+
+-- SUBCATEGORY 데이터
+insert into subcategory values(11, '2채널', 10);
+insert into subcategory values(12, '2.1채널 이상', 10);
+insert into subcategory values(13, '사운드바[PC/TV]', 10);
+insert into subcategory values(14, '스피커폰/포터블/도킹스피커', 10);
+insert into subcategory values(21, '헤드셋', 20);
+insert into subcategory values(22, '악세서리', 20);
+insert into subcategory values(31, '이어폰', 30);
+insert into subcategory values(32, '헤드폰', 30);
+insert into subcategory values(33, '악세사리/포터블플레이어', 30);
+insert into subcategory values(41, '블루투스 스피커', 40);
+insert into subcategory values(42, '블루투스 휴대용스피커', 40);
+insert into subcategory values(43, '블루투스 이어셋', 40);
+insert into subcategory values(44, '블루투스 헤드폰', 40);
+insert into subcategory values(45, '블루투스 악세서리', 40);
+insert into subcategory values(51, 'PC마이크', 50);
+insert into subcategory values(52, '유선마이크', 50);
+insert into subcategory values(53, '무선/블루투스마이크', 50);
+insert into subcategory values(54, '기가폰/메가폰', 50);
+insert into subcategory values(55, '마이크용품', 50);
+
+-- BRAND 데이터
+insert into brand values(10, '아이리버');
+insert into brand values(20, '브리츠');
+insert into brand values(30, '삼성전자');
+insert into brand values(40, 'ABKO');
+insert into brand values(50, 'APPLE');
+
+-- PRODUCT 데이터
+insert into product values(SEQ_PID.nextval, 'BA-C1', 40, 41, 20, 54900, 100, 32, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'IBS-400', 10, 13, 10, 28500, 79, 12, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'IR-S30 SHINY', 10, 11, 10, 19900, 50, 54, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'EQwear-S10 PC', 10, 11, 10, 14900, 60, 65, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'IR-S50WOODEN BLOCK', 10, 11, 10, 21900, 5, 43, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'IR-SB200', 10, 13, 10, 29900, 79, 23, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'IR-SB300', 10, 13, 10, 35000, 2, 54, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'IR-SB100', 10, 13, 10, 24900, 2, 76, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'IR-H70V SoundTake', 20, 21, 10, 16900, 20, 45, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, '블랭크 IGH-M10V', 20, 21, 10, 13000, 20, 54, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'IR-H50V STONE', 20, 21, 10, 13200, 50, 87, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'IGE-101', 20, 21, 10, 22000, 50, 89, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'IGH-L20 Blank LED', 20, 21, 10, 11800, 0, 34, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'Astell Kem AK120Ⅱ', 30, 33, 10, 1877000, 0, 23, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'Astell Kern AK120', 30, 33, 10, 1487000, 0, 45, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BHC-50M', 30, 31, 10, 8000, 50, 56, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'BHC-40M', 30, 31, 10, 6900, 50, 89, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'BHC-130', 30, 31, 10, 11000, 50, 34, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BHC-60M', 30, 31, 10, 11600, 50, 23, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'ICP-X07i', 30, 31, 10, 12900, 50, 89, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'LGH-L300', 30, 32, 10, 14100, 50, 23, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'IR-R1000 WOODEN BOX', 40, 41, 10, 49900, 50, 345, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, '사운드 마크 BTS-H7N', 40, 41, 10, 109900, 50, 65, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, '사운드 드럼 BTS-D3N', 40, 41, 10, 37920, 50, 87, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'IR-BT400 HEAVY STONE', 40, 41, 10, 35000, 50, 34, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'IR-BT500 COFFE', 40, 41, 10, 21000, 50, 567, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, '사운드 마이트 BTS-MF1', 40, 41, 10, 61130, 50, 987, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, '사운드 박스 BTS-M5', 40, 41, 10, 44520, 50, 234, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, '사운드 펫 BTS-PT3W', 40, 41, 10, 25860, 50, 12, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'CITYLIFE IR-R5000', 40, 41, 10, 69900, 0, 65, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'IR-TWS100', 40, 43, 10, 59000, 50, 123, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'BR-1200', 10, 12, 20, 21900, 50, 32, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BR-2500', 10, 12, 20, 59400, 50, 12, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BR-2750BT', 10, 12, 20, 59340, 50, 321, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BR-2600M PLUS', 10, 12, 20, 64200, 50, 543, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'BR-5100 Castle', 10, 12, 20, 99000, 50, 54, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BZ-MC1583B', 10, 12, 20, 333000, 50, 345, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BR-4900T3', 10, 12, 20, 121500, 50, 23, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BR-5100T3', 10, 12, 20, 170100, 50, 65, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'Z2100 Pinacle 2', 10, 11, 20, 22500, 50, 23, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BR-COUPE', 10, 11, 20, 12900, 50, 76, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BR-Orion Plus', 10, 11, 20, 26100, 50, 123, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BR-100A Cuve Black 2', 10, 11, 20, 21000, 50, 32, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BR-100A Cuve', 10, 11, 20, 19800, 50, 543, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BR-R9 SoundBar', 10, 13, 20, 15000, 50, 342, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BE-100 SoundBar Plus', 10, 13, 20, 22590, 50, 65, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BZ-SP600X', 10, 13, 20, 39600, 50, 76, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'BA-R90 SoundBar', 10, 13, 20, 18900, 50, 43, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BZ-T2210S', 10, 13, 20, 56500, 50, 543, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BZ-T2230S AV', 10, 13, 20, 76120, 50, 543, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BA-GY20', 10, 14, 20, 29400, 50, 21, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BA-GY10', 10, 14, 20, 31050, 50, 23, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BZ-CR9910', 10, 14, 20, 32400, 50, 43, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'BZ-RT3800', 10, 14, 20, 49680, 50, 432, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BA-PR1 사운드워크', 10, 14, 20, 25200, 50, 23, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'BZ-CR2949', 10, 14, 20, 29920, 50, 42, default, default, '시계/알람/라디오', 'N');
+insert into product values(SEQ_PID.nextval, 'BZ-CR3181', 10, 14, 20, 26400, 50, 23, default, default, '시계/알람/라디오', 'N');
+insert into product values(SEQ_PID.nextval, 'BZ-R3740', 10, 14, 20, 25230, 0, 64, default, default, '라디오/알람', 'N');
+insert into product values(SEQ_PID.nextval, 'KG40', 20, 21, 20, 62000, 30, 32, default, default, '가상7.1ch', 'N');
+insert into product values(SEQ_PID.nextval, 'K680', 20, 21, 20, 25000, 30, 65, default, default, '헤드셋 / 음악+통화용 / 헤어밴드형 / 유선 / 스테레오 / 리모컨 / 마이크 / 길이조절밴드 / 고정클립악세서리 제공
+', 'Y');
+insert into product values(SEQ_PID.nextval, 'K-S2 USB Hub', 20, 21, 20, 18000, 30, 432, default, default, 'USB 허브 / 1:5 / 2포트 / Type A / 무전원 / 헤드셋, 헤드폰, 마이크 연결포트 / 케이블 길이: 1.2m', 'N');
+insert into product values(SEQ_PID.nextval, 'K35GH', 20, 21, 20, 19800, 30, 432, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'HS20', 20, 21, 20, 94000, 30, 23, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BHST-3', 20, 22, 20, 29700, 30, 21, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'BZ-MP3110L', 30, 33, 20, 39800, 30, 23, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'BZ-MP4580BL', 30, 33, 20, 47000, 0, 32, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'H850', 30, 32, 20, 57420, 50, 54, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'H890 Hi-Fi', 30, 32, 20, 154800, 50, 123, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'W820BT', 30, 32, 20, 79200, 0, 65, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'P10GX', 30, 31, 20, 12900, 50, 76, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'PH22', 30, 31, 20, 25000, 50, 87, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'BE-M660', 30, 31, 20, 39900, 50, 32, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'PH22', 30, 31, 20, 25000, 50, 56, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'BR-1900DB', 40, 41, 20, 249000, 50, 87, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BR-Gamers', 40, 41, 20, 85000, 50, 234, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BZ-T6530', 40, 41, 20, 109000, 50, 76, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BR-1600BT', 40, 41, 20, 99000, 50, 12, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BA-CL2', 40, 41, 20, 64300, 50, 23, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'MC-1500B2R', 50, 52, 20, 23200, 50, 23, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BA-SD10', 40, 42, 20, 37500, 50, 43, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BZ-V90', 40, 42, 20, 31000, 50, 65, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BZ-M3750', 40, 42, 20, 49000, 50, 12, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BA-MK2', 40, 42, 20, 38200, 50, 123, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'Mount TW55', 40, 43, 20, 79200, 50, 55, default, default, null, 'N');
+insert into product values(SEQ_PID.nextval, 'BZ-YWS5', 40, 43, 20, 34900, 50, 1, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'BE-ME120', 40, 43, 20, 12330, 50, 87, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'BE-ME110', 40, 43, 20, 8200, 50, 21, default, default, null, 'Y');
+insert into product values(SEQ_PID.nextval, 'MP500 IMPACT', 50, 51, 40, 37000, 50, 45, default, default, null, 'N');
+
+--PRODUCT_OP 데이터
+insert into product_op values(2, '블랙/화이트');
+insert into product_op values(3, '블랙/코발트블루');
+insert into product_op values(4, '블랙/화이트');
+insert into product_op values(5, '블랙/우드');
+insert into product_op values(6, '블랙/로즈골드/코발트블루');
+insert into product_op values(7, '블랙/화이트');
+insert into product_op values(8, '블랙/로즈골드/코발트블루');
+insert into product_op values(9, '블랙/화이트');
+insert into product_op values(11, '블랙/화이트');
+insert into product_op values(16, '블랙/화이트/민트/그레이');
+insert into product_op values(17, '블랙/화이트/민트');
+insert into product_op values(19, '블랙/로즈골드/골드/화이트');
+insert into product_op values(20, '블랙/골드/실버');
+insert into product_op values(21, '블랙/화이트');
+insert into product_op values(24, '블랙/화이트');
+insert into product_op values(25, '화이트/블루/오렌지');
+insert into product_op values(26, '블루/핑크/그린');
+insert into product_op values(28, '블랙/화이트');
+insert into product_op values(29, '블랙/화이트/민트/브라운/핑크');
+insert into product_op values(31, '블랙/화이트');
+insert into product_op values(35, '블랙/화이트');
+insert into product_op values(47, '블랙/화이트');
+insert into product_op values(53, '우드/실버');
+insert into product_op values(55, '블랙/레드');
+insert into product_op values(60, '옐로우/레드');
+insert into product_op values(62, '블루/레드');
+insert into product_op values(64, '블랙/레드');
+insert into product_op values(65, '화이트/레드');
+insert into product_op values(69, '블랙/화이트');
+insert into product_op values(70, '블랙/화이트');
+insert into product_op values(71, '블랙/화이트');
+insert into product_op values(85, '블랙/화이트');
+insert into product_op values(86, '블랙/화이트');
+insert into product_op values(87, '블랙/핑크');
+
+-- ANSWER / REVIEW 가데이터
+
+insert into REVIEW values(SEQ_RID.nextval, 1, 29, 'asd', '첫번째 후기', '마이크 정말 좋아요!', default, sysdate, sysdate, default);
+insert into ANSWER values(SEQ_AID.nextval, 1, 29, 1, 'admin', '첫번쨰 후기 답변', '감사합니다!', default, sysdate, sysdate, 'Y');
+insert into REVIEW values(SEQ_RID.nextval, 2, 29, 'qwe', '첫번째 질문', '배송 언제 오나요?', default, sysdate, sysdate, 'Y');
+insert into ANSWER values(SEQ_AID.nextval, 2, 29, 2, 'admin', '첫번째 답변', '죄송합니다.', default, sysdate, sysdate, 'Y');
+insert into REVIEW values(SEQ_RID.nextval, 1, 29, 'zxc', '두번째 후기', '또 사고 싶어요!', default, sysdate, sysdate, default);
+insert into REVIEW values(SEQ_RID.nextval, 1, 29, 'xcv', '세번째 후기', '별로네요.', default, sysdate, sysdate, default);
+insert into REVIEW values(SEQ_RID.nextval, 1, 29, 'asd', '네번째 후기', '그냥 그래요.', default, sysdate, sysdate, default);
+insert into REVIEW values(SEQ_RID.nextval, 1, 29, 'sdf', '다섯번째 후기', '완전 좋아요!', default, sysdate, sysdate, default);
+insert into ANSWER values(SEQ_AID.nextval, 1, 29, 1, 'admin', '두번째 후기 답변', '감사합니다!', default, sysdate, sysdate, 'Y');
+insert into ANSWER values(SEQ_AID.nextval, 1, 29, 1, 'admin', '세번째 후기 답변', '만족시켜드리지 못해서 죄송합니다.', default, sysdate, sysdate, 'Y');
+
+COMMIT;
+

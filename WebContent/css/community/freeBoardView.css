@@ -1,0 +1,260 @@
+.subMenu span{
+	cursor:pointer;
+}
+body{
+	min-height:100%;
+	min-width:100%;
+
+	text-align:center;
+}
+.freeBoard{
+	width:100%;
+	
+}
+
+.freeBoard table{
+	background-color:white;
+
+
+}
+.freeBoard th{
+	text-align:center;
+
+}
+
+
+.freeBoardOut {
+	width:  70vw;
+	height: 100%;
+	border:1px solid white;
+	margin-top:10vh;
+	margin-bottom:15vh;
+	display:inline-block;
+	
+}
+
+.shit{
+
+	
+}
+
+.subMenu{
+	height:10vh;
+	width: 40vw;
+	margin-top:6vh;
+	display:inline-block;
+
+	
+}
+
+
+
+
+/************avi************* */
+.Avireview{
+	text-align:left;
+}
+.Avireview span{
+	color:white;
+	display:block;
+	
+}
+
+span{
+	
+	color:white;
+}
+
+.sm-1{
+	padding-right: 40vh;
+}
+
+
+.sm-2{
+	padding-left: 20vh;
+}
+
+.sm-3{
+	padding-left: 10vh;
+}
+
+.mar{
+	
+	margin-bottom: 3vh;
+	margin-top: 3vh;
+	
+}
+
+.main{
+	
+	min-height:100vh;
+	width:100%;
+
+
+}
+
+
+
+
+.subpage ,.aviCommonBoard  {
+	
+	text-align: center;
+	margin: 5%;
+	font-size:17px;
+	display: inline-block;
+	height:auto;
+
+}
+
+.aviCommonBoard input[type=text],textarea{
+	background:none;
+	color:white;
+	resize:none;
+	
+}
+
+body{
+	min-height:100%;
+	min-width:100%;
+
+	text-align:center;
+}
+
+.fulldiv{
+	height:auto;
+	width:100%;
+}
+
+.aviBoardList{
+	width: 100%;
+	height: auto;
+}
+
+.aviList{
+	cursor:pointer;
+}
+
+*:focus{
+	outline:none;
+}
+
+ .divparent{
+ 	text-align:center;
+ }
+ 
+ /*button  */
+ 
+ .good{
+ 	display:inline-block;
+ }
+ 
+.good button{
+  background:#1AAB8A;
+  color:#fff;
+  border:none;
+  position:relative;
+
+  height:6vh;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+.good button:hover{
+  background:#fff;
+  color:#1AAB8A;
+}
+.good button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  transition:400ms ease all;
+}
+.good button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.good button:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+hr{
+	margin:0px;
+}
+
+
+.pagingArea button{
+	background:none;
+	color:white;
+	border:0;
+}
+
+.pagingArea button:hover{
+	color:#9042f5;
+}
+
+.deleteReply {
+	color:gray;
+	cursor:pointer;
+}
+.deleteReply:hover{
+	color:white;
+}
+
+.updatedeletebtn, .updatedeletebtn button{
+	background:none;
+	color:gray;
+	border:0;
+}
+
+.updatedeletebtn button:hover{
+	color:white;
+}
+
+
+.reword2 span , .rewordmodal-container span{
+	color:white;
+	cursor:pointer;
+	
+}
+
+.reword2 span:hover{
+	color:red;
+	
+}
+
+.rewordmodal-container{
+	position:relative;
+	
+}
+.rewordmodal-container:after {
+	
+	position:absolute;
+	content:"";
+	top:0;
+	left:0;
+/*  background: url("https://i.pinimg.com/736x/c4/e8/99/c4e8997e6229a20d8b2ab6ac8c6015fb.jpg") center center;  */
+	background: url(../../img/cmboard/light.jpg) center center; 
+	/* background: url("http://blogfiles.naver.net/MjAxNzA2MjJfMTIw/MDAxNDk4MTIzNTk1NTEz.AB9LoB6dOHZFkwVhoQZIIOxo6OwaXl6FUtm8wXZ10_Ig.w3VX4ipFL9eAv_XEmI1_BLxA4C7qxROKQd0h4fAZKhQg.JPEG.u352601u/41.750.1334.jpg") center center; */
+	width: 100%;
+    height: 100%;
+    opacity : 0.7;
+    z-index: -1;
+
+
+}
+
+.reword span:hover{
+	color:red;
+}
+
+
+

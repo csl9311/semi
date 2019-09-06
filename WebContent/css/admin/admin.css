@@ -1,0 +1,196 @@
+@charset "UTF-8";
+
+* {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	background: rgb(40, 44, 52);
+	vertical-align: middle;
+	font-size: 12px !important;
+	color: white;
+}
+
+hr {
+	border: 0.5px solid white;
+	margin: 0px !important;
+}
+
+table {
+	border-spacing: 0px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+input {
+	color: black;
+}
+
+select {
+	color: black;
+	height: 17px;
+	min-width: 40px;
+}
+
+tr, td, th {
+	height: 4vh;
+	padding: 10px;
+}
+
+.adminInput {
+	color: black;
+	border: none;
+}
+
+.adminButton {
+	color: black;
+	border: none;
+	padding: 10px;
+	width: 80px;
+}
+
+.adminRadio {
+	width: 12px;
+	height: 12px;
+	background: white;
+}
+
+.center, .center tr, .center tr td {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+/* 상단 여백 */
+.emptyHeader {
+	height: 10vh;
+}
+
+/* 메뉴 div */
+.menu {
+	display: inline-flex;
+	text-align: center;
+	padding: 10vh;
+	margin: 1vw;
+	border: 0.5px solid white;
+	font-size: 16px;
+}
+
+/* 검색 */
+.search>input {
+	width: 30vw;
+}
+
+.search>button {
+	width: 10vw;
+	color: black;
+}
+
+/* memberDetailView */
+.grade {
+	width: 173px;
+}
+
+.phone {
+	width: 50px;
+	text-align: center;
+}
+
+.dash {
+	color: white;
+}
+
+.readonly, label {
+	background: none;
+	color: white;
+}
+
+.updateAddress {
+	display: inline-block;
+}
+
+/* signUp */
+.rowTitle {
+	width: 10vw;
+	min-width: 110px;
+	color: white;
+}
+
+.content {
+	color: black;
+}
+
+.resultLabel {
+	display: none;
+	padding: 0px;
+	margin: 0px;
+	height: 1px;
+}
+
+.resultLabel>td {
+	padding: 0px;
+	height: 1vh;
+}
+
+.updateAddress {
+	text-align: center;
+	display: inline-block;
+	padding: 30px;
+	padding-bottom: 0px;
+}
+
+.newsAgree, .newsDisagree, .smsAgree, .smsDisagree, .gender {
+	width: 30px;
+	height: 30px;
+}
+
+.resultList tr th, .resultList tr td {
+	width: 8vw;
+	padding: 0px;
+	text-align: center;
+}
+
+input[type=password] {
+	width: 147px;
+	height: 17px;
+	font-size: 17px;
+	margin: 0px;
+	border: none;
+}
+
+input {
+	border: none;
+}
+
+.agree {
+	width: 20px;
+	height: 20px;
+}
+
+.disagree {
+	width: 20px;
+	height: 20px;
+}
+
+.input[type=radio] {
+	margin-top: 6px;
+}
+
+.genderTd {
+	display: flex;
+}
+
+.gender label {
+	padding-top: 100px;
+}
+
+.pSelect {
+	width: 180px;
+}
+
+.inputOpt {
+	width: 100px;
+}

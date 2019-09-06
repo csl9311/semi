@@ -1,0 +1,196 @@
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2019/0201/535763/535763_600.jpg', 1, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2019/0201/535763/20160727_BA-C1_review_final.jpg', 1, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2016/0708/370992/370992_600.jpg', 2, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/370992/001_01.jpg', 2, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2017/1017/431568/431568_600.jpg', 3, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/431568/2.jpg', 3, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/1019/501400/501400_600.jpg', 4, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/501400/e.jpg', 4, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2017/1019/431961/431961_600.jpg', 5, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/431961/2.jpg', 5, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2017/1011/430779/430779_600.jpg', 6, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/430779/2.jpg', 6, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2017/1017/431582/431582_600.jpg', 7, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/431582/2.jpg', 7, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2017/1019/431950/431950_600.jpg', 8, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/431950/2.jpg', 8, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0830/491530/491530_600.jpg', 9, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/491530/e.jpg', 9, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2017/0920/429346/429346_600.jpg', 10, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/429346/2.jpg', 10, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0830/491533/491533_600.jpg', 11, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2018/0830/491533/IR-H50V_STONE-.jpg', 11, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2019/0429/567829/567829_600.jpg', 12, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2019/0429/567829/iriver_IGE-101.JPG', 12, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2016/1102/393391/393391_600.jpg', 13, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/393391/001_01.jpg', 13, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2016/0912/388459/388459_600.jpg', 14, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/388459/001_01.jpg', 14, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2013/0916/270841/270841_600.jpg', 15, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://www.all4sound.com/images/description/20130701180816-.jpg', 15, SYSDATE, 1);
+
+-- Ä¿¹Ô¿Ï·á
+
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0521/466305/466305_600.jpg', 16, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/466305/2.jpg', 16, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0425/461014/461014_600.jpg', 17, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/461014/2.jpg', 17, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2019/0718/586889/586889_5_600.jpg', 18, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2019/0718/586889/BHC-130_s.jpg', 18, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/1205/517312/517312_600.jpg', 19, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2018/1205/517312/euc-krbQkhDLTYwTSDApS5qcGc.jpeg', 19, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0719/484220/484220_600.jpg', 20, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2018/0719/484220/ICP-X07I.jpg', 20, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0315/452692/452692_600.jpg', 21, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/452692/2.jpg', 21, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2017/1017/431585/431585_600.jpg', 22, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/431585/2.jpg', 22, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0719/484228/484228_600.jpg', 23, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2018/0719/484228/BTS-H7N(1).jpg', 23, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0712/477162/477162_600.jpg', 24, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2018/0712/477162/BTS-D3N(1).jpg', 24, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2017/1017/431589/431589_600.jpg', 25, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/431589/2.jpg', 25, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2017/1017/431588/431588_600.jpg', 26, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/431588/2.jpg', 26, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0615/471481/471481_600.jpg', 27, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2018/0615/471481/BTS-MF1_feature.jpg', 27, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0712/477161/477161_600.jpg', 28, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2018/0712/477161/BTS-M5(1).jpg', 28, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0615/471482/471482_600.jpg', 29, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2018/0615/471482/BTS-PT3W_SOUNDPET_feature.jpg', 29, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/1024/502575/502575_600.jpg', 30, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2018/1024/502575/IR-R5000.jpg', 30, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2019/0130/535168/535168_600.jpg', 31, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2019/0130/535168/IR-TWS100.jpg', 31, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2012/0823/231049/231049_600.jpg', 32, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img_detail/2012/0823/231049/spec_01.jpg', 32, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2017/0828/426022/426022_600.jpg', 33, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/426022/2.jpg', 33, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2019/0411/562905/562905_600.jpg', 34, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2019/0411/562905/BR-2750BT_review.jpg', 34, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0329/455829/455829_600.jpg', 35, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/455829/2.jpg', 35, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2013/1021/275043/275043_600.jpg', 36, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img_detail/2013/1021/275043/333_01.jpg', 36, SYSDATE, 1);
+
+---------- Ä¿¹Ô¿Ï·á
+
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2019/0419/565571/565571_600.jpg', 37, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2019/0419/565571/BZ-MC1583B_review_3M.JPG', 37, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2013/0403/251690/251690_600.jpg', 38, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img_detail/2013/0403/251690/3_01.jpg', 38, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2017/0905/427162/427162_600.jpg', 39, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/427162/2.jpg', 39, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2016/0512/365079/365079_600.jpg', 40, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/365079/001_01.jpg', 40, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2006/1020/41146/41146_600.jpg', 41, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img_detail/2006/1020/41146/05d43f9856ffd16c4e674b0d87cd29b1.jpg', 41, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2015/0204/325894/325894_600.jpg', 42, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/325894/201904231636259_9MN0HXX6.jpg', 42, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/1002/497308/497308_600.jpg', 43, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/497308/e.jpg', 43, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2019/0502/568355/568355_600.jpg', 44, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/568355/BR-1000a%20Cuve_700.jpg', 44, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2014/0113/285037/285037_600.jpg', 45, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img_detail/2014/0113/285037/333_01.jpg', 45, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2012/0810/229907/229907_600.jpg', 46, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://www.joyzen.co.kr/editor/uploads/2013/02/01/510b6e646de47.jpg', 46, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0305/450365/450365_600.jpg', 47, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2018/0305/450365/180222_BZ-SP600X_review.jpg', 47, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2016/1005/390608/390608_600.jpg', 48, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/390608/001_01.jpg', 48, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2017/1103/434634/434634_600.jpg', 49, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/434634/2.jpg', 49, SYSDATE, 1);
+
+commit;
+------------- Ä¿¹Ô¿Ï·á
+
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0131/446674/446674_600.jpg', 50, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/446674/2.jpg', 50, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2019/0128/534459/534459_600.jpg', 51, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2019/0128/534459/gy20d.jpg', 51, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2019/0128/534461/534461_600.jpg', 52, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2019/0128/534461/20180305112341460_GEVIKNOJ.jpg', 52, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0907/492796/492796_600.jpg', 53, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/492796/e.jpg', 53, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/1214/520366/520366_600.jpg', 54, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/520366/3623232.jpg', 54, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2016/0223/358548/358548_600.jpg', 55, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/358548/2130706433_1465361488_76.jpg', 55, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0312/451893/451893_600.jpg', 56, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/451894/201903181721103_ESNYQXT1.jpg', 56, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0312/451894/451894_600.jpg', 57, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/451894/201903181721103_ESNYQXT1.jpg', 57, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0809/487873/487873_600.jpg', 58, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/487873/e.jpg', 58, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/1126/513834/513834_600.jpg', 59, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2018/1126/513834/euc-krbMTgxMTEyX0tHNDBfcmV2aWV3XzNNwMzHzy5qcGc.jpeg', 59, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2014/1112/318124/318124_600.jpg', 60, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img_detail/2014/1112/318124/111_01.jpg', 60, SYSDATE, 1);
+
+COMMIT; 
+
+---------Ä¿¹Ô¿Ï·á
+
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2017/1115/436311/436311_600.jpg', 61, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/436311/2.jpg', 61, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2017/0213/404429/404429_600.jpg', 62, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/404429/2.jpg', 62, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2019/0514/571125/571125_600.jpg', 63, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/545867/5.jpg', 63, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2017/1115/436365/436365_600.jpg', 64, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/436365/2.jpg', 64, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2019/0226/541589/541589_600.jpg', 65, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/541589/66207.jpg', 65, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2019/0226/541588/541588_600.jpg', 66, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/541588/66209.jpg', 66, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0117/443805/443805_600.jpg', 67, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/443805/2.jpg', 67, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0105/442271/442271_600.jpg', 68, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/442271/2.jpg', 68, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2019/0304/542488/542488_600.jpg', 69, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/542488/1.jpg', 69, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2019/0314/546097/546097_600.jpg', 70, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image1.compuzone.co.kr/img/cmm_product_request/74535/P10GX_3M.JPG', 70, SYSDATE, 1);
+
+COMMIT;
+
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0809/488005/488005_600.jpg', 71, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2018/0809/488005/PH22_review_3M.JPG', 71, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/1024/502574/502574_600.jpg', 72, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2018/1024/502574/201810241332097_7AQ6330C.jpg', 72, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0928/497005/497005_600.jpg', 74, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/497005/e.jpg', 74, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2015/0319/328816/328816_600.jpg', 75, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img_detail/2015/0319/328816/001_01.jpg', 75, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/1106/506490/506490_600.jpg', 76, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/506490/36232323.jpg', 76, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2017/1026/433086/433086_600.jpg', 77, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/433086/2.jpg', 77, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2019/0208/536881/536881_600.jpg', 78, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2019/0208/536881/BA-CL2_contents_2.jpg', 78, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2019/0314/546268/546268_600.jpg', 79, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2019/0314/546268/MC-1500B2K_review.jpg', 79, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2017/1214/439833/439833_600.jpg', 80, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/439833/2.jpg', 80, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0307/451150/451150_600.jpg', 81, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/451150/522222.jpg', 81, SYSDATE, 1);
+
+
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0102/441831/441831_600.jpg', 82, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/441831/2.jpg', 82, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0919/495362/495362_600.jpg', 83, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/495362/e.jpg', 83, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2019/0521/572696/572696_600.jpg', 84, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://gi.esmplus.com/luckyn9n9/Earphone/MountTWS5/MountTWS5_01.jpg', 84, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2017/0929/430506/430506_600.jpg', 85, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/429940/6200.jpg', 85, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2017/0929/430422/430422_600.jpg', 86, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/430422/48498.jpg', 86, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/0202/447059/447059_600.jpg', 87, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/pr_early_image/447059/8545452_01.jpg', 87, SYSDATE, 1);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'http://image3.compuzone.co.kr/img/product_img/2018/1217/520517/520517_600.jpg', 88, SYSDATE, 0);
+insert into PATTACHMENT values (SEQ_PFID.nextval, 1, 1, 'https://image3.compuzone.co.kr/img/product_img_detail/2018/1217/520517/201812141245150_7AQ6330C.jpg', 88, SYSDATE, 1);
+
+commit;
